@@ -1,14 +1,29 @@
-export const LogoBar = ({ imgs }: { imgs:[] }) => {
+import Image from "next/image";
+
+export interface LogoBarProps {
+  imgs?: string[];
+}
+
+export const LogoBar = ({ imgs }: LogoBarProps) => {
+  const defaultImgs = Array(6).fill(
+    "/sanity-logo.avif"
+  );
+
   return (
     <div className="pt-20">
       <div className="flex gap-4 layout justify-center">
-        <img className="max-w-[100px]" src="https://cdn.sanity.io/images/vftxng62/production/29d01f6468905504a24886d47430eb1381bf301a-2500x502.png?w=940&auto=format" />
-        <img className="max-w-[100px]" src="https://cdn.sanity.io/images/vftxng62/production/29d01f6468905504a24886d47430eb1381bf301a-2500x502.png?w=940&auto=format" />
-        <img className="max-w-[100px]" src="https://cdn.sanity.io/images/vftxng62/production/29d01f6468905504a24886d47430eb1381bf301a-2500x502.png?w=940&auto=format" />
-        <img className="max-w-[100px]" src="https://cdn.sanity.io/images/vftxng62/production/29d01f6468905504a24886d47430eb1381bf301a-2500x502.png?w=940&auto=format" />
-        <img className="max-w-[100px]" src="https://cdn.sanity.io/images/vftxng62/production/29d01f6468905504a24886d47430eb1381bf301a-2500x502.png?w=940&auto=format" />
-        <img className="max-w-[100px]" src="https://cdn.sanity.io/images/vftxng62/production/29d01f6468905504a24886d47430eb1381bf301a-2500x502.png?w=940&auto=format" />
+        {(imgs?.length ? imgs : defaultImgs).map((src, index) => (
+          <Image
+            key={index}
+            alt="Logo Preview"
+            className="max-w-[100px]"
+            src={src}
+            width={100}
+            height={50}
+            priority
+          />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};

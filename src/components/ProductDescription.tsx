@@ -1,4 +1,4 @@
-interface ProductDescriptionProps {
+export interface ProductDescriptionProps {
   title: string;
   description: string;
   imageUrl: string;

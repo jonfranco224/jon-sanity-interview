@@ -1,5 +1,5 @@
-import { LogoBar } from "./LogoBar";
-import { ProductDescription } from "./ProductDescription";
+import { LogoBar, LogoBarProps } from "./LogoBar";
+import { ProductDescription, ProductDescriptionProps } from "./ProductDescription";
 
 export const resolveComponents = (data: unknown) => {
   if (!Array.isArray(data)) {
@@ -12,7 +12,8 @@ export const resolveComponents = (data: unknown) => {
   );
 
   const componentMap: {
-    productDescription: React.ComponentType<{ title: string; description: string }>;
+    productDescription: React.ComponentType<ProductDescriptionProps>;
+    logoBar: React.ComponentType<LogoBarProps>
   } = {
     productDescription: ProductDescription,
     logoBar: LogoBar
