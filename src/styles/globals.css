@@ -2,20 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small,
+a,
+button,
+select,
+input,
+option,
+ul,
+li {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: black;
+  font-weight: 400;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h1,
+.h1 {
+  @apply text-[36px] leading-[44px] md:text-[42px] md:leading-[50px] lg:text-[60px] lg:leading-[66px];
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+h2,
+.h2 {
+  @apply text-[32px] leading-[33px] md:text-[36px] md:leading-[42px] lg:text-[42px] lg:leading-[50px];
+}
+
+h3,
+.h3 {
+  @apply text-[28px] lg:text-[27px] leading-[27px] lg:leading-[33px];
+}
+
+h4,
+.h4 {
+  @apply text-[25px] lg:text-[18px] leading-[27px] font-[500];
+}
+
+p,
+.p,
+li {
+  @apply text-[17px] md:text-[18px] leading-[25px] font-[400];
+}
+
+b,
+strong {
+  font-weight: 900;
+}
+
+.layout {
+  @apply mx-auto container px-4;
+}
+
+a {
+  @apply font-[400] text-[18px];
+}
+
+a:not(.button-primary-light):not(.button-primary):hover {
+  @apply underline;
+}
+
+
+/* Buttons */
+.button-primary,
+.button-primary-white-solid {
+  @apply font-medium rounded-[8px] !text-white text-[16px] py-[8px] px-[25px] lg:px-[30px] lg:py-[8px] bg-slate-900 hover:bg-slate-700 lg:text-[18px] inline-block cursor-pointer transition;
+}
+
+.button-primary-light,
+.button-primary-light-white-solid {
+  @apply font-medium rounded-[8px] text-[16px] py-[8px] px-[25px] lg:px-[30px] lg:py-[8px] bg-white hover:bg-transparent !text-black hover:!text-white border border-white lg:text-[18px] inline-block cursor-pointer transition;
 }
